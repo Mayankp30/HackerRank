@@ -32,7 +32,7 @@ class LinkedList {
         Node end = new Node(data);
         Node n = head;
 
-        // Let's check for NPE before iterate over crunchifyCurrent
+        // Let's check for NPE before iterate over Current
         if (n != null) {
 
             // starting at the head node, crawl to the end of the list and then add element after last node

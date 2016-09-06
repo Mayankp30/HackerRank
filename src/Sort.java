@@ -1,7 +1,10 @@
+import java.util.Scanner;
 
 /**
  * Created by Mayank on 7/3/16.
  */
+
+
 public class Sort {
 
     public void Sorter(String word, String sortseq){
@@ -76,6 +79,23 @@ public class Sort {
         return true;
     }
 
+    public void insertionSort(int[] A){
+        for(int i=1;i<A.length;i++){
+            int value= A[i];
+            int hole = i;
+            while(hole>0 && A[hole-1]>value){
+                A[hole]= A[hole-1];
+                hole= hole-1;
+            }
+            A[hole]= value;
+        }
+
+
+        for(int n : A){
+            System.out.print(n);
+        }
+    }
+
 
     public static void main(String[] args) {
         Sort e1= new Sort();
@@ -83,8 +103,9 @@ public class Sort {
         //System.out.println(e1.pall("A man, a plan, a canal: Panama"));
         //e1.sentenceRev("pani da rang");
         //e1.unique("jaishyam");
-        String hey = "zayn";
-
+        //String hey = "zayn";
+        int[] random = {4,7,11,12,5,8,1};
+        e1.insertionSort(random);
 
     }
 }

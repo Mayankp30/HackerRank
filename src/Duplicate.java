@@ -149,19 +149,130 @@ public class Duplicate {
 
     }
 
+    int Highest(int[] array){
+        int highest = Integer.MIN_VALUE;
+        int secondHighest = Integer.MIN_VALUE;
+        for(int i=0;i<array.length;i++){
+            if(array[i]>highest){
+                highest=secondHighest;
+                secondHighest= array[i];
+            }else if(array[i]>secondHighest){
+                secondHighest=array[i];
+            }
+        }
+        return secondHighest;
 
+    }
+
+    void indexOfHighest(int[] array){
+        int largest = Integer.MIN_VALUE;
+        int  sec = Integer.MIN_VALUE;
+        int largestIndex=0;
+        int index2=0;
+
+        for(int i = 0; i < array.length; i++)
+        {
+            if(array[i] > largest) // 12 10 44 5
+            {
+                largest=array[i];
+                largestIndex=i;
+            }
+        }
+        System.out.println("high index : " + largestIndex);
+    }
+
+    static int diff(int[] a){
+
+        int high=Integer.MIN_VALUE;
+        for(int n: a){
+            if(n>high){
+                high=n;
+            }
+        }
+        int low = Integer.MAX_VALUE;
+        for(int n: a){
+            if(n<low){
+                low=n;
+            }
+        }
+
+        int diff=high-low;
+        return diff;
+    }
+
+    static int countPairs(int[] numbers, int k){
+        int temp;
+        int len=numbers.length;
+        int count=0;
+        int beg;
+        int mid;
+        int end;
+        int midVal;
+        Arrays.sort(numbers);
+
+
+        for(int i=0;i<len-1;i++){
+            temp=numbers[i]+k;
+            beg=i+1;
+            end=len-1;
+
+            for(int l=beg;l<len;l++){
+                mid=(beg+end)/2;
+                midVal=numbers[mid];
+                if(midVal==temp){
+                    count++;
+                    break;
+                }
+                else if(midVal>temp){
+                    end=mid-1;
+                }
+                else{
+                    beg=mid+1;
+                }
+            }
+
+        }
+        return count;
+    }
+
+    int binarySearch(int[] array, int x){
+
+        int low=0;
+        int high=array.length-1;
+        while (low<=high){
+
+            int middle = (high+low)/2;
+
+            if(array[middle]==x){
+                return middle;
+            }else if(x<array[middle]){
+                high=middle-1;
+            }else if(x>array[middle]){
+                low=middle+1;
+            }
+        }return -1;
+    }
+
+    void Cisco(String word){
+        String[] todu=word.split(" ");
+        StringBuilder stringBuilder= new StringBuilder();
+        for(int i=todu.length-1;i>-1;i--){
+            stringBuilder.append(todu[i] + " q");
+        }
+        System.out.println(stringBuilder.toString());
+    }
 
     public static void main(String[] args) {
-        int[] myArray={1,-5,4,8,11};
+        int[] myArray = {1, -5, 4, 8, 11};
         //System.out.println(usingMPS(myArray));
         Duplicate duplicate = new Duplicate();
-        int[] num1= {1,4,5,7,7};
-        int[] num2= {2,3,4,7,7};
+        int[] num1 = {1, 4, 5, 7, 7};
+        int[] num2 = {2, 3, 4, 7, 7};
         //duplicate.intersect(num1,num2);
-        int[] array1 = {1,4,8,10,12,12,12};
-        int[] arrar2 = {2,6,8,10,12};
+        int[] array1 = {1, 4, 8, 10, 12, 12, 12};
+        int[] arrar2 = {2, 6, 8, 10, 12};
         //duplicate.arrayUnion(array1,arrar2);
-        int[] random = {1,4,5,6,7,8};
+        int[] random = {-4, 5, 6, 7, 10, 23, 4};
         //        duplicate.arrayUnion(array1,arrar2);
         List<Integer> list = new LinkedList<>();
         list.add(1);
@@ -184,11 +295,12 @@ public class Duplicate {
         list.add(17);
         list.add(19);
 
+        int[] binary = {4,7,9,8,10,11,19,37,39,40,44,48,49,50};
+        //System.out.println(duplicate.binarySearch(binary,11));
+        String word="lolwa sambha";
+        duplicate.Cisco(word);
 
 
-
-        //duplicate.Merger(list,list2);
-        duplicate.Merger(list,list2);
     }
 
 
