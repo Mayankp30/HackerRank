@@ -26,24 +26,26 @@ class BinarySTree {
     }
 
     // This method mainly calls insertRec()
-    public void insert(int key) {
-        root = insertRec(root, key);
+    public void insert(int key){
+        root = insertRecord(root, key);
     }
 
-    public Node insertRec(Node root, int key){
+    public Node insertRecord(Node root, int key){
 
-        if(root == null){
-            root=new Node(key);
-            return root;
+        if(root==null){
+            root = new Node(key);
+            return root;}
+
+        if(key<root.key){
+            root.left=insertRecord(root.left,key);
         }
-        if (key<root.key){
-            root.left=insertRec(root.left,key);
-        }
-        if (key>root.key){
-            root.right=insertRec(root.right,key);
+
+        if(key>root.key){
+            root.right=insertRecord(root.right,key);
         }
 
         return root;
+
     }
 
     public boolean search(Node root, int key){
@@ -88,7 +90,7 @@ class BinarySTree {
                 return root.left;
 
             // node with two children: Get the inorder successor (smallest
-            // in the right subtree)
+            // in the right subtree)  or largest in the left subtree !!
             root.key = maxValue(root.left);
 
             // Delete the inorder successor
@@ -133,19 +135,6 @@ class BinarySTree {
         }
     }
 
-    void preOrder(){
-        preOrder(root);
-    }
-
-    private List<Integer> preOrder(Node root){
-        List<Integer> list = new LinkedList<>();
-        if(root!=null){
-            list.add(root.key);
-            preOrder(root.left);
-            preOrder(root.right);
-        }
-        return list;
-    }
 
     // Driver Program to test above functions
     public static void main(String[] args) {
@@ -165,7 +154,9 @@ class BinarySTree {
         tree.insert(70);
         tree.insert(60);
         tree.insert(80);
-        tree.preOrder();
+        tree.inorder();
+        tree.delete(70);
+        System.out.println(tree.search(tree.root,20));
 
 
 

@@ -49,14 +49,12 @@ class LinkedList {
 
     public boolean remove(int index) {
 
-        if(index < 1 || index > size()){
+        if (index < 1 || index > size()) {
             return false;
         }
-
         Node current = head;
-
         if(head!=null){
-            for(int i = 0;i<index;i++){
+            for(int i=0;i<index;i++){
                 if(current.getNext()==null){
                     return false;
                 }

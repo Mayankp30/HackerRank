@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * Created by Mayank on 7/3/16.
@@ -96,16 +99,41 @@ public class Sort {
         }
     }
 
+    public static int stringToint( String str ){
+        int i = 0, number = 0;
+        int len = str.length();
+
+        while( i < len ){       // 452
+            number *= 10;
+            number += ( str.charAt(i++) - '0' );
+        }
+        return number;
+    }
+
+    public int fib(int n){
+        int[] f = new int[n+1];
+
+        f[0]=0;
+        f[1]=1;
+
+        for(int i=2;i<=n;i++){
+           f[i]= f[i-1] + f[i-2];
+        }
+        return f[n];
+
+    }
 
     public static void main(String[] args) {
-        Sort e1= new Sort();
-        //e1.Sorter("arda","da");
-        //System.out.println(e1.pall("A man, a plan, a canal: Panama"));
-        //e1.sentenceRev("pani da rang");
-        //e1.unique("jaishyam");
-        //String hey = "zayn";
-        int[] random = {4,7,11,12,5,8,1};
-        e1.insertionSort(random);
+
+        List<String> myList = new ArrayList<>();
+        myList.add("1");
+        myList.add("5");
+        myList.add("10");
+        System.out.println(myList.get(0));
+        Stream<String> myStream = myList.stream();
+        System.out.println(myList.stream().reduce("",(a,b) -> b + " , " + a));
+
+
 
     }
 }

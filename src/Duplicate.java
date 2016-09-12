@@ -121,7 +121,7 @@ public class Duplicate {
             Integer first1 = list1.get(0);
             Integer first2 = list2.get(0);
 
-            if(first1 < first2)
+            if(first1 <= first2)
             {
                 result.add(first1);
                 list1.remove(first1);
@@ -130,11 +130,6 @@ public class Duplicate {
             {
                 result.add(first2);
                 list2.remove(first2);
-            }
-            else // if first1 == first2 then default to first1
-            {
-                result.add(first1);
-                list1.remove(first1);
             }
         }
         for (Integer i : list1) // add any remaining values from list1
@@ -152,15 +147,21 @@ public class Duplicate {
     int Highest(int[] array){
         int highest = Integer.MIN_VALUE;
         int secondHighest = Integer.MIN_VALUE;
+        int third = Integer.MIN_VALUE;
         for(int i=0;i<array.length;i++){
             if(array[i]>highest){
-                highest=secondHighest;
-                secondHighest= array[i];
+                third=secondHighest;
+                secondHighest=highest;
+                highest=array[i];
             }else if(array[i]>secondHighest){
+                third=secondHighest;
                 secondHighest=array[i];
+
+            }else if(array[i]>third){
+                third=array[i];
             }
         }
-        return secondHighest;
+        return third;
 
     }
 
@@ -181,59 +182,6 @@ public class Duplicate {
         System.out.println("high index : " + largestIndex);
     }
 
-    static int diff(int[] a){
-
-        int high=Integer.MIN_VALUE;
-        for(int n: a){
-            if(n>high){
-                high=n;
-            }
-        }
-        int low = Integer.MAX_VALUE;
-        for(int n: a){
-            if(n<low){
-                low=n;
-            }
-        }
-
-        int diff=high-low;
-        return diff;
-    }
-
-    static int countPairs(int[] numbers, int k){
-        int temp;
-        int len=numbers.length;
-        int count=0;
-        int beg;
-        int mid;
-        int end;
-        int midVal;
-        Arrays.sort(numbers);
-
-
-        for(int i=0;i<len-1;i++){
-            temp=numbers[i]+k;
-            beg=i+1;
-            end=len-1;
-
-            for(int l=beg;l<len;l++){
-                mid=(beg+end)/2;
-                midVal=numbers[mid];
-                if(midVal==temp){
-                    count++;
-                    break;
-                }
-                else if(midVal>temp){
-                    end=mid-1;
-                }
-                else{
-                    beg=mid+1;
-                }
-            }
-
-        }
-        return count;
-    }
 
     int binarySearch(int[] array, int x){
 
@@ -253,52 +201,13 @@ public class Duplicate {
         }return -1;
     }
 
-    void Cisco(String word){
-        String[] todu=word.split(" ");
-        StringBuilder stringBuilder= new StringBuilder();
-        for(int i=todu.length-1;i>-1;i--){
-            stringBuilder.append(todu[i] + " q");
-        }
-        System.out.println(stringBuilder.toString());
-    }
 
     public static void main(String[] args) {
-        int[] myArray = {1, -5, 4, 8, 11};
-        //System.out.println(usingMPS(myArray));
+        int[] arr1 ={1,4,8};
+        int[] arr2 ={2,6,8};
         Duplicate duplicate = new Duplicate();
-        int[] num1 = {1, 4, 5, 7, 7};
-        int[] num2 = {2, 3, 4, 7, 7};
-        //duplicate.intersect(num1,num2);
-        int[] array1 = {1, 4, 8, 10, 12, 12, 12};
-        int[] arrar2 = {2, 6, 8, 10, 12};
-        //duplicate.arrayUnion(array1,arrar2);
-        int[] random = {-4, 5, 6, 7, 10, 23, 4};
-        //        duplicate.arrayUnion(array1,arrar2);
-        List<Integer> list = new LinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.add(4);
-        list.add(8);
-        list.add(10);
-        list.add(12);
-        list.add(14);
+        duplicate.arrayUnion(arr1,arr2);
 
-
-        List<Integer> list2 = new LinkedList<>();
-        list.add(2);
-        list.add(4);
-        list.add(8);
-        list.add(10);
-        list.add(11);
-        list.add(13);
-        list.add(14);
-        list.add(17);
-        list.add(19);
-
-        int[] binary = {4,7,9,8,10,11,19,37,39,40,44,48,49,50};
-        //System.out.println(duplicate.binarySearch(binary,11));
-        String word="lolwa sambha";
-        duplicate.Cisco(word);
 
 
     }
