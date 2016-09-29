@@ -62,16 +62,6 @@ public class Duplicate {
         }
 
 
-
-
-/*
-        int[] result = new int[list.size()];
-        int i = 0 ;
-        for (int s : list){
-            result[i++]=s;
-        }
-        return result;*/
-
     }
 
 
