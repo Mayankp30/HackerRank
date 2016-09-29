@@ -1,3 +1,9 @@
+package linkedList;
+
+/**
+ * Created by Mayank on 9/6/16.
+ */
+
 class LinkedList {
     private Node head;
 

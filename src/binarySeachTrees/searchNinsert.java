@@ -1,3 +1,4 @@
+package binarySeachTrees;
 /**
  * Created by Mayank on 7/5/16.
  */

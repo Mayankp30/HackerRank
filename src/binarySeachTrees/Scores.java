@@ -1,18 +1,15 @@
+package binarySeachTrees;
+
 /**
  * Created by Mayank on 7/7/16.
  */
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-/**
- * Created by Mayank on 7/6/16.
- */
-/*
- * Complete the function below.
- */
 
 
 public class Scores {
