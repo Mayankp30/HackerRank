@@ -4,7 +4,26 @@ package dynamicprogramming;
  * Created by Mayank on 9/29/16.
  */
 public class Dynamic {
-    // coin change
+
+    /**********************************************************************************
+     *
+     *Given a value N, if we want to make change for N cents, and we have infinite supply of each of S = { S1, S2, .. , Sm} valued coins
+     * how many ways can we make the change? The order of coins doesn’t matter.
+     *
+     * For example, for N = 4 and S = {1,2,3},
+     * there are four solutions: {1,1,1,1},{1,1,2},{2,2},{1,3}.
+     * So output should be 4.
+     *
+     * For N = 10 and S = {2, 5, 3, 6},
+     * there are five solutions: {2,2,2,2,2}, {2,2,3,3}, {2,2,6}, {2,3,5} and {5,5}.
+     * So the output should be 5.
+     **********************************************************************************/
+
+
+
+
+
+    // coin change problem
     int countCoins( int S[], int m, int n )
     {
         // If n is 0 then there is 1 solution (do not include any coin)
@@ -35,7 +54,7 @@ public class Dynamic {
 
         return f[n];
     }
-    // fibonacci using string recursion no DP
+    // fibonacci using recursion no DP
 
     /**********************************************************************************
      *
@@ -61,7 +80,7 @@ public class Dynamic {
         }
     }
 
-    
+
 
 
 }
