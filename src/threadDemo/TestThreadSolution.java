@@ -4,10 +4,11 @@ package threadDemo;
  * Created by Mayank on 10/6/16.
  */
 
-// by making sure that thread acquires locks in order, can ensure that deadlock wont occur in the application 
+// by making sure that thread acquires locks in order, can ensure that deadlock wont occur in the application
 public class TestThreadSolution {
     public static Object Lock1 = new Object();   // lock 1
     public static Object Lock2 = new Object();   // lock 2
+
     public static void main(String args[]) {
         ThreadDemo1 T1 = new ThreadDemo1();
         ThreadDemo2 T2 = new ThreadDemo2();
